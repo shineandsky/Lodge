@@ -1,0 +1,5 @@
+{
+	"local" : "http://localhost:9050",
+	"remote" : "http://168.63.210.9:9050",
+	"image" : "http://pamakids.blob.core.windows.net/images/"
+}

@@ -1,0 +1,38 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace components "com.pamakids.components.*";
+
+global
+{
+	focusThickness:0;
+	focusAlpha:0;
+	fontSize: 12;
+	modalTransparency:0.3;
+	modalTransparencyBlur:0.3;
+	font-family:Microsoft YaHei;
+}
+
+components|PopupBox
+{
+	skinClass:ClassReference("skins.popup.PopupBoxSkin")
+}
+
+.popupLightColor
+{
+	color:#252525;
+}
+
+.popupDarkColor
+{
+	color:#656565;
+}
+
+.lightColor
+{
+	color:#c1c1c1;
+}
+.darkColor
+{
+	color:#939393;
+}

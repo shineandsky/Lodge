@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009"
+					   xmlns:s="library://ns.adobe.com/flex/spark"
+					   xmlns:mx="library://ns.adobe.com/flex/mx"
+					   showStatusBar="false"
+					   title="客栈管理系统"
+					   creationComplete="inited(event)"
+					   skinClass="skins.AppSkin"
+					   xmlns:views="views.*"
+					   fontFamily="Microsoft YaHei">
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		@namespace views "views.*";
+		@namespace mx "library://ns.adobe.com/flex/mx";
+		
+		global
+		{
+			focusAlpha:0;
+		}
+	</fx:Style>
+	<fx:Script>
+		<![CDATA[
+			import com.pamakids.components.PAlert;
+			import com.pamakids.manager.LoadManager;
+			import com.pamakids.managers.NiceToolTipManagerImpl;
+			import com.pamakids.managers.PopupBoxManager;
+
+			import mx.core.Singleton;
+			import mx.events.FlexEvent;
+			import mx.managers.ToolTipManager;
+
+			import controller.MC;
+
+			import services.ServiceBase;
+
+			protected function inited(event:FlexEvent):void
+			{
+				ToolTipManager.showDelay=0;
+				nativeWindow.x=Capabilities.screenResolutionX / 2 - nativeWindow.width / 2;
+				nativeWindow.y=Capabilities.screenResolutionY / 2 - nativeWindow.height / 2;
+				mx.core.Singleton.registerClass("mx.managers::IToolTipManager2", NiceToolTipManagerImpl);
+				LoadManager.instance.load('assets/config.json', loadedHandler, null, null, null, false, URLLoaderDataFormat.TEXT);
+				MC.i.init(nativeApplication, this);
+				PAlert.PARENT=this;
+				PopupBoxManager.PARENT=this;
+
+			}
+
+			private function loadedHandler(o:Object):void
+			{
+				o=JSON.parse(o.toString());
+				//				ServiceBase.HOST=o.remote;
+				ServiceBase.HOST=o.local;
+			}
+		]]>
+	</fx:Script>
+
+	<fx:Style source="assets/default.css"/>
+
+	<views:Login id="login"/>
+
+</s:WindowedApplication>
