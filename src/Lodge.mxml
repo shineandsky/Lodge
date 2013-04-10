@@ -15,7 +15,7 @@
 		
 		global
 		{
-			focusAlpha:0;
+			focusAlpha:0.5;
 		}
 	</fx:Style>
 	<fx:Script>
@@ -35,7 +35,7 @@
 
 			protected function inited(event:FlexEvent):void
 			{
-				ToolTipManager.showDelay=0;
+				ToolTipManager.showDelay=0.5;
 				nativeWindow.x=Capabilities.screenResolutionX / 2 - nativeWindow.width / 2;
 				nativeWindow.y=Capabilities.screenResolutionY / 2 - nativeWindow.height / 2;
 				mx.core.Singleton.registerClass("mx.managers::IToolTipManager2", NiceToolTipManagerImpl);
