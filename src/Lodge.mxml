@@ -35,15 +35,14 @@
 
 			protected function inited(event:FlexEvent):void
 			{
+
+ToolTipManager.showDelay=0.5;
+				LoadManager.instance.load('assets/config.json', loadedHandler, null, null, null, false, URLLoaderDataFormat.TEXT);
 				nativeWindow.x=Capabilities.screenResolutionX / 2 - nativeWindow.width / 2;
-<<<<<<< HEAD
-				ToolTipManager.showDelay=0.5;
-=======
-				ToolTipManager.showDelay=0;
->>>>>>> remotes/origin/master
+				
 				nativeWindow.y=Capabilities.screenResolutionY / 2 - nativeWindow.height / 2;
 				mx.core.Singleton.registerClass("mx.managers::IToolTipManager2", NiceToolTipManagerImpl);
-				LoadManager.instance.load('assets/config.json', loadedHandler, null, null, null, false, URLLoaderDataFormat.TEXT);
+				
 				MC.i.init(nativeApplication, this);
 				PAlert.PARENT=this;
 				PopupBoxManager.PARENT=this;
