@@ -15,7 +15,8 @@
 		
 		global
 		{
-			focusAlpha:0;
+			focusColor:0;
+			focusAlpha:0.2;
 		}
 	</fx:Style>
 	<fx:Script>
@@ -35,8 +36,8 @@
 
 			protected function inited(event:FlexEvent):void
 			{
-				ToolTipManager.showDelay=0;
 				nativeWindow.x=Capabilities.screenResolutionX / 2 - nativeWindow.width / 2;
+				ToolTipManager.showDelay=0.2;
 				nativeWindow.y=Capabilities.screenResolutionY / 2 - nativeWindow.height / 2;
 				mx.core.Singleton.registerClass("mx.managers::IToolTipManager2", NiceToolTipManagerImpl);
 				LoadManager.instance.load('assets/config.json', loadedHandler, null, null, null, false, URLLoaderDataFormat.TEXT);
